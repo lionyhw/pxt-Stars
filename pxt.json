@@ -10,7 +10,8 @@
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts"
+        "main.ts",
+        "Wukong.ts"
     ],
     "testFiles": [
         "test.ts"

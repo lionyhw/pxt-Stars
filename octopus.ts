@@ -1,9 +1,9 @@
 /**
 * Functions to Octopus sensor by ELECFREAKS Co.,Ltd.
 */
-//% color=#00B1ED  icon="\uf005" block="Octopus_Basic" blockId="Octopus_Basic"
+//% color=#00B1ED  icon="\uf005" block="Octopus" blockId="Octopus"
 //% groups='["Digital", "Analog", "IIC Port"]'
-namespace Octopus_Basic {
+namespace Octopus {
     export enum Distance_Unit_List {
         //% block="cm" 
         Distance_Unit_cm,

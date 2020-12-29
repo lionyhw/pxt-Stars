@@ -216,7 +216,7 @@ namespace Octopus {
     * @param Rjpin AnalogPin, eg: AnalogPin.P1
     */
     //% blockId="potentiometer" block="Trimpot %Rjpin analog value"
-    //% subcategory=Input color=#E2C438 group="Analog"
+    //% subcategory=Sensor color=#E2C438 group="Analog"
     export function trimpotSensor(Rjpin: AnalogPin): number {
         return pins.analogReadPin(Rjpin)
     }
@@ -225,7 +225,7 @@ namespace Octopus {
     * @param Rjpin DigitalPin, eg: DigitalPin.P1
     */
     //% blockId=button block="Button %Rjpin is pressed"
-    //% subcategory=Input group="Digital" color=#EA5532
+    //% subcategory=Sensor group="Digital" color=#EA5532
     export function buttonSensor(Rjpin: DigitalPin): boolean {
         let pin = Rjpin
         pins.setPull(pin, PinPullMode.PullUp)

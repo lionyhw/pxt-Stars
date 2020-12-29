@@ -10,7 +10,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "octopus.ts"
+        "octopus.ts",
+        "sendBuffer.asm"
     ],
     "testFiles": [
         "test.ts"

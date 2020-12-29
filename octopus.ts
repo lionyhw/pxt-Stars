@@ -178,6 +178,39 @@ namespace Octopus {
         //% block="◌ ◌" enumval=3
         Tracking_State_3
     }
+    export enum NeoPixelColors {
+        //% block=red
+        Red = 0xFF0000,
+        //% block=orange
+        Orange = 0xFFA500,
+        //% block=yellow
+        Yellow = 0xFFFF00,
+        //% block=green
+        Green = 0x00FF00,
+        //% block=blue
+        Blue = 0x0000FF,
+        //% block=indigo
+        Indigo = 0x4b0082,
+        //% block=violet
+        Violet = 0x8a2be2,
+        //% block=purple
+        Purple = 0xFF00FF,
+        //% block=white
+        White = 0xFFFFFF,
+        //% block=black
+        Black = 0x000000
+    }
+    /**
+     * Different modes for RGB or RGB+W NeoPixel strips
+     */
+    export enum NeoPixelMode {
+        //% block="RGB (GRB format)"
+        RGB = 0,
+        //% block="RGB+W"
+        RGBW = 1,
+        //% block="RGB (RGB format)"
+        RGB_RGB = 2
+    }
     /**
     * TODO: Get the value of the potentiometer(0~1023)
     * @param Rjpin AnalogPin, eg: AnalogPin.P1
@@ -306,6 +339,33 @@ namespace Octopus {
             return true;
         } else return false;
     }
+    //% block="clear display" color=#00B1ED
+    //% subcategory=Display group="OLED"
+    export function oledClear() {
+        //oledcmd(DISPLAY_OFF);   //display off
+        for (let j = 0; j < 8; j++) {
+            setText(j, 0);
+            {
+                for (let i = 0; i < 16; i++)  //clear all columns
+                {
+                    putChar(' ');
+                }
+            }
+        }
+        //oledcmd(DISPLAY_ON);    //display on
+        setText(0, 0);
+    }
+    //% line.min=1 line.max=8 line.defl=2 
+    //% n.defl=20201225
+    //% block="OLED show line %line|number %n"
+    //% subcategory=Display group="OLED" color=#00B1ED
+    export function showUserNumber(line: number, n: number) {
+        if (firstoledinit) {
+            oledinit()
+            firstoledinit = false
+        }
+        showUserText(line, "" + n)
+    }
     //% line.min=1 line.max=8 line.defl=1
     //% text.defl="Hello,ELECFREAKS"
     //% block="OLED show line %line|text %text"
@@ -323,37 +383,10 @@ namespace Octopus {
         for (let c of text) {
             putChar(c);
         }
-
         for (let i = text.length; i < 16; i++) {
             setText(line, i);
             putChar(" ");
         }
     }
-    //% line.min=1 line.max=8 line.defl=2 
-    //% n.defl=20201225
-    //% block="OLED show line %line|number %n"
-    //% subcategory=Display group="OLED" color=#00B1ED
-    export function showUserNumber(line: number, n: number) {
-        if (firstoledinit) {
-            oledinit()
-            firstoledinit = false
-        }
-        showUserText(line, "" + n)
-    }
-    //% block="clear display" color=#00B1ED
-    //% subcategory=Display group="OLED"
-    export function oledClear() {
-        //oledcmd(DISPLAY_OFF);   //display off
-        for (let j = 0; j < 8; j++) {
-            setText(j, 0);
-            {
-                for (let i = 0; i < 16; i++)  //clear all columns
-                {
-                    putChar(' ');
-                }
-            }
-        }
-        //oledcmd(DISPLAY_ON);    //display on
-        setText(0, 0);
-    }
+
 }

@@ -496,7 +496,7 @@ namespace Octopus {
          * Send all the changes to the strip.
          */
         //% blockId="neopixel_show" block="%strip|show" 
-        //% weight=79
+        //% weight=79 color=#EA5532
         //% parts="neopixel" subcategory=Display group="Neopixel"
         show() {
             sendBuffer(this.buf, this.pin);

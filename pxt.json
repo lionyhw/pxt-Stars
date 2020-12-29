@@ -10,7 +10,7 @@
     "files": [
         "README.md",
         "main.ts",
-        "Wukong.ts"
+        "octopus.ts"
     ],
     "testFiles": [
         "test.ts"

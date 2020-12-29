@@ -406,7 +406,7 @@ namespace Octopus {
          * @param rgb RGB color of the LED
          */
         //% blockId="neopixel_set_strip_color" block="%strip|show color %rgb=neopixel_colors"
-        //% weight=85 color=#EA5532
+        //% weight=87 color=#EA5532
         //% parts="neopixel" subcategory=Display group="Neopixel"
         showColor(rgb: number) {
             rgb = rgb >> 0;
